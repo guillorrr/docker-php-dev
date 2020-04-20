@@ -1,0 +1,13 @@
+# ignore phpstorm
+.idea/
+
+# ignore vscode except launch.json for xdebug
+.vscode/*
+!.vscode/launch.json
+
+# ignore logs
+logs/
+
+# ignore html files
+html/*
+!html/.gitkeep
