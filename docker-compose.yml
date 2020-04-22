@@ -22,6 +22,7 @@ services:
       - ./logs/xdebug:/logs/xdebug
       - ./config/php/custom.conf:/usr/local/etc/php-fpm.d/zz-custom.conf
       - ./config/php/xdebug.ini:/usr/local/etc/php/conf.d/zz-xdebug.ini
+      - ./config/php/custom.ini:/usr/local/etc/php/conf.d/zz-custom.ini
       - ./logs/php-fpm/:/tmp/xdebug_log
     networks:
       - php-network
@@ -52,6 +53,12 @@ services:
       - 8080:80
     networks:
         - php-network
+  mail:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025
+    networks:
+      - php-network
 networks:
   php-network:
     driver: bridge
